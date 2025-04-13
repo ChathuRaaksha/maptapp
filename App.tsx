@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import SplashScreen from './Screens/SplashScreen';
+import SplashScreen2 from './Screens/SplashScreen2';
+import HomeScreen from './Screens/HomeScreen';
+import LoginScreen from './Screens/LoginScreen';
+import SignUpScreen from './Screens/SignUpScreen';
+import SettingsScreen from './Screens/SettingsScreen';
+import OnboardingScreen1 from './Screens/onboarding/OnboardingScreen1';
+import OnboardingScreen2 from './Screens/onboarding/OnboardingScreen2';
+import OnboardingScreen3 from './Screens/onboarding/OnboardingScreen3';
+import { RootStackParamList } from './types/navigation'; // Import the type
+
+const Stack = createStackNavigator<RootStackParamList>(); // Define the stack type
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+        <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen name="Splash2" component={SplashScreen2}  options={{ headerShown: false }}/>
+        <Stack.Screen name="Onboarding1" component={OnboardingScreen1} />
+        <Stack.Screen name="Onboarding2" component={OnboardingScreen2} />
+        <Stack.Screen name="Onboarding3" component={OnboardingScreen3} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
