@@ -56,7 +56,7 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
                 <View style={styles.logoContainer}>
                     
                     <Image
-                        source={require('../assets/img/logo3.png')}
+                        source={require('../assets/img/logo4.png')}
                         style={styles.logo}
                     />
                  

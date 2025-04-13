@@ -33,11 +33,11 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
     };
 
     const handleSignUp = async () => {
-       
 
-       
-            navigation.navigate("SignUp");
-        
+
+
+        navigation.navigate("SignUp");
+
     };
     return (
 
@@ -138,11 +138,15 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
                     </TouchableOpacity>
 
                     {/* Sign Up Option */}
-                    <TouchableOpacity onPress={handleSignUp}>
-                    <Text style={styles.footerText}>
-                        Don't have an account? <Text style={styles.signUpText}>SIGN UP</Text>
-                    </Text>
-                    </TouchableOpacity>
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Text style={styles.footerText}>Don't have an account? </Text>
+                        <TouchableOpacity onPress={handleSignUp}>
+                            <Text style={styles.signUpText}>SIGN UP</Text>
+                        </TouchableOpacity>
+                    </View>
+
+
                     <Text style={styles.footerText}>OR</Text>
                     <View style={styles.socialLoginContainer}>
                         {/* Facebook Login */}

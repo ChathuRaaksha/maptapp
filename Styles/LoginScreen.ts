@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   signUpText: {
     color: "orange",
     fontWeight: "bold",
-    padding: 15,
+    padding: 20,
   },
   button: {
     backgroundColor: TEAL,
