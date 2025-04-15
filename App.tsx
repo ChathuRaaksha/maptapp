@@ -9,6 +9,8 @@ import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
 import AuthCodeScreen from './Screens/AuthCodeScreen';
 import CreateNewPasswordScreen from './Screens/CreateNewPasswordScreen';
 import SignUpScreen from './Screens/SignUpScreen';
+import CreateProfileScreen from './Screens/CreateProfileScreen';
+import PersonalizeInterestsScreen from './Screens/PersonalizeInterestsScreen';
 import SettingsScreen from './Screens/SettingsScreen';
 import OnboardingScreen1 from './Screens/onboarding/OnboardingScreen1';
 import OnboardingScreen2 from './Screens/onboarding/OnboardingScreen2';
@@ -26,8 +28,10 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="Forgot_password" component={ForgotPasswordScreen} />
+        <Stack.Screen name="CreateProfile" component={CreateProfileScreen} />
         <Stack.Screen name="AuthCode" component={AuthCodeScreen} />
         <Stack.Screen name="CreateNewPassword" component={CreateNewPasswordScreen} />
+        <Stack.Screen name="PersonalizeInterests" component={PersonalizeInterestsScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
         <Stack.Screen name="Splash2" component={SplashScreen2}  options={{ headerShown: false }}/>
         <Stack.Screen name="Onboarding1" component={OnboardingScreen1} />

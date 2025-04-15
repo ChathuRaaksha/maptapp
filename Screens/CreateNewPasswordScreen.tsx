@@ -90,7 +90,7 @@ const CreateNewPasswordScreen: React.FC<{ navigation: any }> = ({ navigation }) 
         <View style={styles.container}>
             <StatusBar backgroundColor="transparent" barStyle="light-content" translucent />
             <ImageBackground
-                source={require('../assets/img/login.png')} // Using the same background
+                source={require('../assets/img/beach2.png')} // Using the same background
                 style={styles.background}
                 resizeMode="cover"
             >

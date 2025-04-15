@@ -9,6 +9,7 @@ import {
     Dimensions,
     StatusBar,
     ScrollView,
+    Alert,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import styles from "../Styles/SignUpScreen"; // Import styles
@@ -28,14 +29,51 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
     const [agreeToTerms, setAgreeToTerms] = useState(false);
 
     const handleSignup = async () => {
-        // Here you would implement your signup logic
-        // For now, just navigate to Dashboard
-        navigation.navigate("Dashboard");
+        // Validate all fields are filled
+        if (!name || !email || !phoneNumber || !country || !password || !agreeToTerms) {
+            Alert.alert(
+                "Incomplete Information",
+                "Please fill in all fields and agree to the terms and conditions.",
+                [{ text: "OK" }]
+            );
+            return;
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            Alert.alert(
+                "Invalid Email",
+                "Please enter a valid email address.",
+                [{ text: "OK" }]
+            );
+            return;
+        }
+
+        // Validate password length
+        if (password.length < 6) {
+            Alert.alert(
+                "Password Too Short",
+                "Password should be at least 6 characters long.",
+                [{ text: "OK" }]
+            );
+            return;
+        }
+
+        // Show success message
+        Alert.alert(
+            "Registration Successful",
+            "Your account has been created successfully!",
+            [
+                { 
+                    text: "Continue", 
+                    onPress: () => navigation.navigate("CreateProfile") 
+                }
+            ]
+        );
     };
 
     const handleLogin = async () => {
-        // Here you would implement your signup logic
-        // For now, just navigate to Dashboard
         navigation.navigate("Login");
     };
 
@@ -54,12 +92,10 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
                 {/* Logo (centered) */}
                 <View style={styles.logoContainer}>
-                    
                     <Image
                         source={require('../assets/img/logo4.png')}
                         style={styles.logo}
                     />
-                 
                 </View>
 
                 {/* Bottom Card */}
@@ -137,8 +173,6 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
                             </TouchableOpacity>
                         </View>
 
-                       
-
                         {/* Terms and Conditions */}
                         <View style={styles.termsContainer}>
                             <TouchableOpacity
@@ -171,8 +205,6 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
                                 Already have an account? <Text style={styles.signInText}>SIGN IN</Text>
                             </Text>
                         </TouchableOpacity>
-
-                      
                     </ScrollView>
                 </LinearGradient>
             </ImageBackground>

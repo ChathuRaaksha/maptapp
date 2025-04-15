@@ -6,6 +6,11 @@ export type RootStackParamList = {
     Login: undefined;
     SignUp: undefined;
     AuthCode:undefined;
+    CreateProfile:undefined;
+    PersonalizeInterests: { 
+      profileImage?: string | null;
+      username?: string;
+    };
     CreateNewPassword:undefined;
     Forgot_password: undefined;
     Settings: undefined;
