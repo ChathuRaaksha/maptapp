@@ -5,6 +5,9 @@ import SplashScreen from './Screens/SplashScreen';
 import SplashScreen2 from './Screens/SplashScreen2';
 import HomeScreen from './Screens/HomeScreen';
 import LoginScreen from './Screens/LoginScreen';
+import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
+import AuthCodeScreen from './Screens/AuthCodeScreen';
+import CreateNewPasswordScreen from './Screens/CreateNewPasswordScreen';
 import SignUpScreen from './Screens/SignUpScreen';
 import SettingsScreen from './Screens/SettingsScreen';
 import OnboardingScreen1 from './Screens/onboarding/OnboardingScreen1';
@@ -22,6 +25,9 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="SignUp" component={SignUpScreen} />
+        <Stack.Screen name="Forgot_password" component={ForgotPasswordScreen} />
+        <Stack.Screen name="AuthCode" component={AuthCodeScreen} />
+        <Stack.Screen name="CreateNewPassword" component={CreateNewPasswordScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
         <Stack.Screen name="Splash2" component={SplashScreen2}  options={{ headerShown: false }}/>
         <Stack.Screen name="Onboarding1" component={OnboardingScreen1} />

@@ -33,11 +33,11 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
     };
 
     const handleSignUp = async () => {
-
-
-
         navigation.navigate("SignUp");
+    };
 
+    const handleForgot_Password= async () => {
+        navigation.navigate("Forgot_password");
     };
     return (
 
@@ -121,7 +121,7 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
                         </TouchableOpacity>
 
                         {/* Forgot Password */}
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={handleForgot_Password}>
                             <Text style={styles.forgotPassword}>Forgot Password?</Text>
                         </TouchableOpacity>
                     </View>
