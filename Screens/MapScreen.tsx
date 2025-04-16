@@ -32,6 +32,48 @@ interface SearchResultType {
   display_name: string;
 }
 
+const allMarkers: MarkerType[] = [
+  {
+    title: "Gamla Stan",
+    description: "Gamla Stan is Stockholm's charming Old Town filled with cobblestone streets and colorful buildings.",
+    coordinate: { latitude: 59.3251, longitude: 18.0708 },
+  },
+  {
+    title: "Vasa Museum",
+    description: "The Vasa Museum houses the only almost fully intact 17th-century ship that has ever been salvaged.",
+    coordinate: { latitude: 59.3275, longitude: 18.0915 },
+  },
+  {
+    title: "Skansen",
+    description: "Skansen is the world's oldest open-air museum, featuring historic buildings and Nordic animals.",
+    coordinate: { latitude: 59.3256, longitude: 18.1036 },
+  },
+  {
+    title: "Fotografiska",
+    description: "A contemporary photography museum with exhibitions, a bistro, and a rooftop view.",
+    coordinate: { latitude: 59.3176, longitude: 18.0847 },
+  },
+  {
+    title: "Grand Hôtel",
+    description: "Luxury hotel by the water with views of the Royal Palace and Gamla Stan.",
+    coordinate: { latitude: 59.3293, longitude: 18.0723 },
+  },
+  {
+    title: "Smorgastarteriet",
+    description: "Popular restaurant offering innovative takes on traditional Swedish cuisine.",
+    coordinate: { latitude: 59.3122, longitude: 18.0792 },
+  },
+  {
+    title: "ABBA The Museum",
+    description: "Interactive museum showcasing the story of ABBA, Sweden’s pop music legends.",
+    coordinate: { latitude: 59.3253, longitude: 18.0912 },
+  },
+];
+
+const defaultMarkers: MarkerType[] = [allMarkers[0], allMarkers[1], allMarkers[2]];
+const savedMarkers: MarkerType[] = [allMarkers[0], allMarkers[4]];
+const forYouMarkers: MarkerType[] = [allMarkers[2], allMarkers[3], allMarkers[5], allMarkers[6]];
+
 const MapScreen: React.FC = () => {
   const [location, setLocation] = useState<Location.LocationObjectCoords | null>(null);
   const [loading, setLoading] = useState(true);
@@ -53,37 +95,14 @@ const MapScreen: React.FC = () => {
   } | null>(null);
 
   const navigation = useNavigation();
-
   const [mapStyle, setMapStyle] = useState("streets");
+
   const mapStyles = [
+    { label: "Hybrid", value: "hybrid" },
     { label: "Streets", value: "streets" },
     { label: "Satellite", value: "satellite" },
-    { label: "Hybrid", value: "hybrid" },
     { label: "Dark", value: "darkmatter" },
     { label: "Topographic", value: "topo" },
-   // { label: "Winter", value: "winter" },
-   // { label: "Bright", value: "bright" },
-  ];
-
-  const customMarkers: MarkerType[] = [
-    {
-      title: "Gamla Stan",
-      description:
-        "Gamla Stan is Stockholm's charming Old Town filled with cobblestone streets and colorful buildings.",
-      coordinate: { latitude: 59.3251, longitude: 18.0708 },
-    },
-    {
-      title: "Vasa Museum",
-      description:
-        "The Vasa Museum houses the only almost fully intact 17th-century ship that has ever been salvaged.",
-      coordinate: { latitude: 59.3275, longitude: 18.0915 },
-    },
-    {
-      title: "Skansen",
-      description:
-        "Skansen is the world's oldest open-air museum, featuring historic buildings and Nordic animals.",
-      coordinate: { latitude: 59.3256, longitude: 18.1036 },
-    },
   ];
 
   useEffect(() => {
@@ -97,7 +116,7 @@ const MapScreen: React.FC = () => {
 
       let currentLocation = await Location.getCurrentPositionAsync({});
       setLocation(currentLocation.coords);
-      setFilteredMarkers(customMarkers);
+      setFilteredMarkers(defaultMarkers);
       setLoading(false);
     })();
   }, []);
@@ -107,7 +126,7 @@ const MapScreen: React.FC = () => {
 
     if (text.trim() === "") {
       setSearchResults([]);
-      setFilteredMarkers(customMarkers);
+      setFilteredMarkers(defaultMarkers);
       return;
     }
 
@@ -248,16 +267,28 @@ const MapScreen: React.FC = () => {
 
       {/* Filter Buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.filterButton}>
-          <Text>For You</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.filterButton}>
-          <Text>Saved</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.filterButton}>
-          <Text>All Filters</Text>
-        </TouchableOpacity>
-      </View>
+  <TouchableOpacity
+    style={styles.filterButton}
+    onPress={() => setFilteredMarkers(forYouMarkers)}
+  >
+    <Text>For You</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity
+    style={styles.filterButton}
+    onPress={() => setFilteredMarkers(savedMarkers)}
+  >
+    <Text>Saved</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity
+    style={styles.filterButton}
+    onPress={() => setFilteredMarkers(allMarkers)}
+  >
+    <Text>All Filters</Text>
+  </TouchableOpacity>
+</View>
+
 
       {/* Selected Marker Info */}
       {selectedMarker && (
