@@ -26,6 +26,20 @@ const INTEREST_CATEGORIES = [
     { id: 8, name: "Local Foods", emoji: "🍲", icon: "spoon" },
 ];
 
+// Emoji scale from 1-10
+const EMOJI_SCALE = [
+    { value: 1, emoji: "😵", label: "Strongly Dislike" },
+    { value: 2, emoji: "😣", label: "Dislike" },
+    { value: 3, emoji: "😞", label: "Somewhat Dislike" },
+    { value: 4, emoji: "🙁", label: "Slightly Dislike" },
+    { value: 5, emoji: "😐", label: "Neutral" },
+    { value: 6, emoji: "😐", label: "Neutral" },
+    { value: 7, emoji: "🙂", label: "Slightly Like" },
+    { value: 8, emoji: "😄", label: "Like" },
+    { value: 9, emoji: "😁", label: "Really Like" },
+    { value: 10, emoji: "🤩", label: "Love It!" },
+];
+
 // Define properly typed props using React Navigation types
 type PersonalizeInterestsScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -79,6 +93,10 @@ const PersonalizeInterestsScreen: React.FC<Props> = ({ navigation, route }) => {
 
     // Current interest being displayed
     const currentInterest = INTEREST_CATEGORIES[currentInterestIndex];
+    
+    // Get current emoji and label based on rating
+    const currentRating = interestRatings[currentInterest.id];
+    const currentEmojiData = EMOJI_SCALE[currentRating - 1]; // Adjust for 0-based index
 
     return (
         <View style={styles.container}>
@@ -143,8 +161,10 @@ const PersonalizeInterestsScreen: React.FC<Props> = ({ navigation, route }) => {
                         <Text style={styles.interestName}>{currentInterest.name}</Text>
                     </View>
 
-                    <View style={styles.emojiContainer}>
-                        <Text style={styles.emoji}>{currentInterest.emoji}</Text>
+                    {/* Emoji Response Indicator */}
+                    <View style={styles.emojiScaleContainer}>
+                        <Text style={styles.currentEmoji}>{currentEmojiData.emoji}</Text>
+                        <Text style={styles.emojiLabel}>{currentEmojiData.label}</Text>
                     </View>
 
                     {/* Slider for rating */}
@@ -159,6 +179,12 @@ const PersonalizeInterestsScreen: React.FC<Props> = ({ navigation, route }) => {
                         maximumTrackTintColor="#D3D3D3"
                         thumbTintColor="#00798C"
                     />
+                    
+                    {/* Emoji scale indicators */}
+                    <View style={styles.emojiRangeContainer}>
+                        <Text style={styles.emojiRangeText}>Dislike</Text>
+                        <Text style={styles.emojiRangeText}>Like</Text>
+                    </View>
 
                     {/* Next button */}
                     <TouchableOpacity style={styles.button} onPress={handleNext}>

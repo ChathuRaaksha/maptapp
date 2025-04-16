@@ -63,6 +63,31 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         width: width * 0.4,
     },
+    emojiScaleContainer: {
+        alignItems: 'center',
+        marginVertical: 20,
+      },
+      currentEmoji: {
+        fontSize: 48,
+        marginBottom: 8,
+      },
+      emojiLabel: {
+        fontSize: 16,
+        color: '#333',
+        textAlign: 'center',
+      },
+      emojiRangeContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+        paddingHorizontal: 10,
+        marginTop: 8,
+        marginBottom: 24,
+      },
+      emojiRangeText: {
+        fontSize: 14,
+        color: '#666',
+      },
     subtitle: {
         fontSize: 18,
         color: '#555',

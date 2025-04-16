@@ -25,10 +25,10 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         const isAuthenticated = await loginController.handleLogin(email, password);
 
         if (isAuthenticated) {
-            navigation.navigate("Dashboard");
+            navigation.navigate("Home");
         } else {
             // Alert.alert("Login Failed", "Invalid email or password");
-            navigation.navigate("Dashboard");
+            navigation.navigate("Home");
         }
     };
 
