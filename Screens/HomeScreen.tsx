@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -9,13 +9,11 @@ import {
   ScrollView,
   Dimensions,
   StatusBar,
-  ImageBackground,
+  Alert,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import DrawerNavigator from "./DrawerNavigator";
 import styles from "../Styles/HomeScreen"; // Import styles
-
-// Import FlatList instead of Carousel for ridgeless mode compatibility
-const { width } = Dimensions.get("window");
 
 // TypeScript interfaces for data types
 interface CarouselItem {
@@ -147,10 +145,25 @@ interface HomeScreenProps {
   navigation: any; // Ideally use a more specific type from React Navigation
 }
 
+const { width } = Dimensions.get("window");
+
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
 
-  // Render carousel item using FlatList instead of Carousel
+  // Handle logout functionality
+  const handleLogout = () => {
+    // Add your logout logic here (API calls, clearing storage, etc.)
+    console.log("User logged out");
+    
+    // Navigate to login screen or show confirmation
+    Alert.alert("Success", "You have been logged out successfully");
+    // navigation.reset({
+    //   index: 0,
+    //   routes: [{ name: 'Login' }], // Uncomment to navigate to Login screen
+    // });
+  };
+
+  // Render carousel item using FlatList
   const renderCarouselItem = ({ item }: { item: CarouselItem }) => (
     <View style={styles.carouselItem}>
       <Image source={item.image} style={styles.carouselImage} />
@@ -213,142 +226,161 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     </TouchableOpacity>
   );
 
-  return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor="transparent" barStyle="light-content" translucent />
-      
-      {/* Top Curved Image */}
-      <Image 
-        source={require('../assets/img/top.png')} 
-        style={styles.curvedBackground} 
-      />
-      
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.userInfo}>
-          <Text style={styles.greeting}>Hi, Supun</Text>
-          <View style={styles.pointsContainer}>
-            <Icon name="circle" size={16} color="#FFD700" />
-            <Text style={styles.pointsText}>2,000 points</Text>
-          </View>
-        </View>
-        <TouchableOpacity style={styles.profileButton}>
-          <Image 
-            source={require('../assets/img/start1.png')} 
-            style={styles.profileImage} 
-          />
-        </TouchableOpacity>
-      </View>
-      
-      {/* Search Bar */}
-      <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color="#666" style={styles.searchIcon} />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search destinations, hotels..."
-          placeholderTextColor="#999"
+  // HomeContent component with openDrawer prop
+  const HomeContent: React.FC<{ openDrawer?: () => void }> = ({ openDrawer }) => {
+    return (
+      <View style={styles.container}>
+        <StatusBar backgroundColor="transparent" barStyle="light-content" translucent />
+        
+        {/* Top Curved Image */}
+        <Image 
+          source={require('../assets/img/top.png')} 
+          style={styles.curvedBackground} 
         />
+        
+        {/* Header */}
+        <View style={styles.header}>
+          {/* Menu Button */}
+          <TouchableOpacity style={styles.menuButton} onPress={openDrawer}>
+            <Icon name="bars" size={22} color="#FFFFFF" />
+          </TouchableOpacity>
+          
+          <View style={styles.userInfo}>
+            <Text style={styles.greeting}>Hi, Supun</Text>
+            <View style={styles.pointsContainer}>
+              <Icon name="circle" size={16} color="#FFD700" />
+              <Text style={styles.pointsText}>2,000 points</Text>
+            </View>
+          </View>
+          
+          <TouchableOpacity style={styles.profileButton}>
+            <Image 
+              source={require('../assets/img/start1.png')} 
+              style={styles.profileImage} 
+            />
+          </TouchableOpacity>
+        </View>
+        
+        {/* Search Bar */}
+        <View style={styles.searchContainer}>
+          <Icon name="search" size={20} color="#666" style={styles.searchIcon} />
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search destinations, hotels..."
+            placeholderTextColor="#999"
+          />
+        </View>
+        
+        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+          {/* Carousel Section */}
+          <View style={styles.carouselSection}>
+            <View style={styles.matchTitleContainer}>
+              <Text style={styles.matchTitle}>Let's find a Match!</Text>
+            </View>
+            <FlatList
+              data={carouselData}
+              renderItem={renderCarouselItem}
+              keyExtractor={(item) => item.id}
+              horizontal
+              pagingEnabled
+              showsHorizontalScrollIndicator={false}
+              onMomentumScrollEnd={(event) => {
+                const slideIndex = Math.floor(
+                  Math.floor(event.nativeEvent.contentOffset.x) / 
+                  Math.floor(event.nativeEvent.layoutMeasurement.width)
+                );
+                setActiveCarouselIndex(slideIndex);
+              }}
+              contentContainerStyle={{ paddingHorizontal: width * 0.1 }}
+              snapToInterval={width * 0.8}
+              snapToAlignment="center"
+              decelerationRate="fast"
+            />
+          </View>
+          
+          {/* Navigation Options */}
+          <View style={styles.navOptionsContainer}>
+            {navigationOptions.map((option) => (
+              <TouchableOpacity key={option.id} style={styles.navOption}>
+                <View style={styles.navIconContainer}>
+                  <Icon name={option.icon} size={24} color="#00798C" />
+                </View>
+                <Text style={styles.navText}>{option.name}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          
+          {/* Destinations Section */}
+          <View style={styles.sectionContainer}>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>Journey together</Text>
+              <TouchableOpacity>
+                <Text style={styles.seeAllText}>See all</Text>
+              </TouchableOpacity>
+            </View>
+            <FlatList
+              data={destinationsData}
+              renderItem={renderDestinationItem}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.destinationList}
+            />
+          </View>
+          
+          {/* Hotels Section */}
+          <View style={styles.sectionContainer}>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>Hotels recomendation for you</Text>
+              <TouchableOpacity>
+                <Text style={styles.seeAllText}>See all</Text>
+              </TouchableOpacity>
+            </View>
+            <FlatList
+              data={hotelsData}
+              renderItem={renderHotelItem}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.hotelList}
+            />
+          </View>
+        </ScrollView>
+        
+        {/* Bottom Navigation */}
+        <View style={styles.bottomNav}>
+          <TouchableOpacity style={styles.navItem} onPress={() => {}}>
+            <Icon name="home" size={24} color="#00798C" />
+            <Text style={[styles.navItemText, styles.activeNavText]}>Home</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ARCamera')}>
+            <Icon name="camera" size={24} color="#666" />
+            <Text style={styles.navItemText}>AR Camera</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Map')}>
+            <Icon name="map-marker" size={24} color="#666" />
+            <Text style={styles.navItemText}>MAP</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Account')}>
+            <Icon name="user" size={24} color="#666" />
+            <Text style={styles.navItemText}>Account</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {/* Carousel Section - Replaced with FlatList */}
-        <View style={styles.carouselSection}>
-          <View style={styles.matchTitleContainer}>
-            <Text style={styles.matchTitle}>Let's find a Match!</Text>
-          </View>
-          <FlatList
-            data={carouselData}
-            renderItem={renderCarouselItem}
-            keyExtractor={(item) => item.id}
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            onMomentumScrollEnd={(event) => {
-              const slideIndex = Math.floor(
-                Math.floor(event.nativeEvent.contentOffset.x) / 
-                Math.floor(event.nativeEvent.layoutMeasurement.width)
-              );
-              setActiveCarouselIndex(slideIndex);
-            }}
-            contentContainerStyle={{ paddingHorizontal: width * 0.1 }}
-            snapToInterval={width * 0.8}
-            snapToAlignment="center"
-            decelerationRate="fast"
-          />
-        </View>
-        
-        {/* Navigation Options */}
-        <View style={styles.navOptionsContainer}>
-          {navigationOptions.map((option) => (
-            <TouchableOpacity key={option.id} style={styles.navOption}>
-              <View style={styles.navIconContainer}>
-                <Icon name={option.icon} size={24} color="#00798C" />
-              </View>
-              <Text style={styles.navText}>{option.name}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-        
-        {/* Destinations Section */}
-        <View style={styles.sectionContainer}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Journey together</Text>
-            <TouchableOpacity>
-              <Text style={styles.seeAllText}>See all</Text>
-            </TouchableOpacity>
-          </View>
-          <FlatList
-            data={destinationsData}
-            renderItem={renderDestinationItem}
-            keyExtractor={(item) => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.destinationList}
-          />
-        </View>
-        
-        {/* Hotels Section */}
-        <View style={styles.sectionContainer}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Hotels recomendation for you</Text>
-            <TouchableOpacity>
-              <Text style={styles.seeAllText}>See all</Text>
-            </TouchableOpacity>
-          </View>
-          <FlatList
-            data={hotelsData}
-            renderItem={renderHotelItem}
-            keyExtractor={(item) => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.hotelList}
-          />
-        </View>
-      </ScrollView>
-      
-      {/* Bottom Navigation */}
-      <View style={styles.bottomNav}>
-        <TouchableOpacity style={styles.navItem} onPress={() => {}}>
-          <Icon name="home" size={24} color="#00798C" />
-          <Text style={[styles.navItemText, styles.activeNavText]}>Home</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ARCamera')}>
-          <Icon name="camera" size={24} color="#666" />
-          <Text style={styles.navItemText}>AR Camera</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Map')}>
-          <Icon name="map-marker" size={24} color="#666" />
-          <Text style={styles.navItemText}>MAP</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Account')}>
-          <Icon name="user" size={24} color="#666" />
-          <Text style={styles.navItemText}>Account</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    );
+  };
+
+  // Wrap the HomeContent with the DrawerNavigator
+  return (
+    <DrawerNavigator 
+      navigation={navigation} 
+      handleLogout={handleLogout}
+    >
+      <HomeContent />
+    </DrawerNavigator>
   );
 };
 

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: WHITE,
   },
-  // Add the curved background image style
+  // Curved background image style
   curvedBackground: {
     position: 'absolute',
     top: 0,
@@ -33,11 +33,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 1, // Make header appear above the curved background
   },
+  // Menu button style
+  menuButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 17,
+  },
   userInfo: {
     flex: 1,
+    marginLeft: 10, // Add spacing between menu button and user info
+    marginTop: 27,
   },
   greeting: {
-    marginTop:17,
+    marginTop: 23,
     fontSize: 24,
     fontWeight: 'bold',
     color: WHITE,
@@ -57,7 +68,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     overflow: 'hidden',
-    marginTop:30,
+    marginTop: 30,
   },
   profileImage: {
     width: '100%',
@@ -93,13 +104,12 @@ const styles = StyleSheet.create({
     zIndex: 1, // Make scroll view appear above the curved background
   },
   carouselSection: {
-    borderTopEndRadius:30,
-    borderTopLeftRadius:30,
+    borderTopEndRadius: 30,
+    borderTopLeftRadius: 30,
     paddingTop: 15,
     backgroundColor: 'rgba(235, 245, 248, 0.8)',  // Light teal for carousel section
     paddingBottom: 20,
-    marginTop:10,
-    
+    marginTop: 10,
   },
   matchTitleContainer: {
     paddingHorizontal: 20,
