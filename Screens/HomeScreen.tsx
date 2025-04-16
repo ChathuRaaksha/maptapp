@@ -14,7 +14,7 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import DrawerNavigator from "./DrawerNavigator";
 import styles from "../Styles/HomeScreen"; // Import styles
-
+import CustomMap from "./MapScreen";
 // TypeScript interfaces for data types
 interface CarouselItem {
   id: string;

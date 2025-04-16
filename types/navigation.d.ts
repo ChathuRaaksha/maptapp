@@ -17,5 +17,6 @@ export type RootStackParamList = {
     Onboarding1: undefined;
     Onboarding2: undefined;
     Onboarding3: undefined;
+    Map:undefined;
   };
   
