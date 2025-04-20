@@ -26,7 +26,7 @@ const ThankYouScreen: React.FC = () => {
 
   // Hardcoded demo values
   const username = "ChathuRaaksha";
-  const userImage = require('../assets/img/supun.png');
+  const userImage = require('../assets/img/profile.png');
 
   const handleDone = () => {
     navigation.navigate('Home');

@@ -25,5 +25,8 @@ export type RootStackParamList = {
     ChangePassword:undefined;
     AdjustPreferences:undefined;
     Community:undefined;
+    Saved:undefined;
+    ContactUs:undefined;
+    Subscription:undefined;
   };
   

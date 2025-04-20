@@ -19,7 +19,7 @@ const DrawerContent: React.FC<DrawerContentProps> = ({ navigation, closeDrawer, 
     { icon: 'bell', label: 'Notifications', screen: 'Notifications' },
     { icon: 'question-circle', label: 'FAQ', screen: 'FAQ' },
     { icon: 'envelope', label: 'Contact Us', screen: 'ContactUs' },
-    { icon: 'credit-card', label: 'Subscription Plans', screen: 'SubscriptionPlans' },
+    { icon: 'credit-card', label: 'Subscription Plans', screen: 'Subscription' },
     { icon: 'cog', label: 'Settings', screen: 'Settings' },
   ];
 
