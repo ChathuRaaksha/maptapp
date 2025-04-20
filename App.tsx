@@ -16,6 +16,11 @@ import OnboardingScreen1 from './Screens/onboarding/OnboardingScreen1';
 import OnboardingScreen2 from './Screens/onboarding/OnboardingScreen2';
 import OnboardingScreen3 from './Screens/onboarding/OnboardingScreen3';
 import MapScreen from './Screens/MapScreen';
+import ContributeScreen from './Screens/ContributeScreen';
+import RestaurantDetailScreen from './Screens/RestaurantDetailScreen';
+import ReviewScreen from './Screens/ReviewScreen';
+import ThankYouScreen from './Screens/ThankYouScreen';
+//import ARCameraScreen from './Screens/ARCameraScreen'; RestaurantDetail
 import { RootStackParamList } from './types/navigation'; // Import the type
 
 const Stack = createStackNavigator<RootStackParamList>(); // Define the stack type
@@ -33,7 +38,12 @@ export default function App() {
         <Stack.Screen name="AuthCode" component={AuthCodeScreen} />
         <Stack.Screen name="CreateNewPassword" component={CreateNewPasswordScreen} />
         <Stack.Screen name="PersonalizeInterests" component={PersonalizeInterestsScreen} />
+        <Stack.Screen name="Contributions" component={ContributeScreen} />
         <Stack.Screen name="Map" component={MapScreen} />
+        <Stack.Screen name="Review" component={ReviewScreen} />
+        <Stack.Screen name="ThankYou" component={ThankYouScreen} />
+        <Stack.Screen name="RestaurantDetail" component={RestaurantDetailScreen} />
+        {/* <Stack.Screen name="ARCamera" component={ARCameraScreen} /> */}
         <Stack.Screen name="Settings" component={SettingsScreen} />
         <Stack.Screen name="Splash2" component={SplashScreen2}  options={{ headerShown: false }}/>
         <Stack.Screen name="Onboarding1" component={OnboardingScreen1} />

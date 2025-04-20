@@ -14,8 +14,12 @@ const DrawerContent: React.FC<DrawerContentProps> = ({ navigation, closeDrawer, 
     { icon: 'home', label: 'Home', screen: 'Home' },
     { icon: 'compass', label: 'Explore', screen: 'Explore' },
     { icon: 'bookmark', label: 'Saved', screen: 'Saved' },
+    { icon: 'star', label: 'Contributions', screen: 'Contributions' },
     { icon: 'ticket', label: 'My Bookings', screen: 'Bookings' },
     { icon: 'bell', label: 'Notifications', screen: 'Notifications' },
+    { icon: 'question-circle', label: 'FAQ', screen: 'FAQ' },
+    { icon: 'envelope', label: 'Contact Us', screen: 'ContactUs' },
+    { icon: 'credit-card', label: 'Subscription Plans', screen: 'SubscriptionPlans' },
     { icon: 'cog', label: 'Settings', screen: 'Settings' },
   ];
 

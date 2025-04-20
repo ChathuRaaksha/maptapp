@@ -157,15 +157,18 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     
     // Navigate to login screen or show confirmation
     Alert.alert("Success", "You have been logged out successfully");
-    // navigation.reset({
-    //   index: 0,
-    //   routes: [{ name: 'Login' }], // Uncomment to navigate to Login screen
-    // });
+     navigation.reset({
+      index: 0,
+      routes: [{ name: 'Login' }], // Uncomment to navigate to Login screen
+     });
   };
 
   // Render carousel item using FlatList
   const renderCarouselItem = ({ item }: { item: CarouselItem }) => (
-    <View style={styles.carouselItem}>
+    <TouchableOpacity 
+      style={styles.carouselItem}
+      onPress={() => navigation.navigate('RestaurantDetail', { itemId: item.id })}
+    >
       <Image source={item.image} style={styles.carouselImage} />
       <View style={styles.carouselContent}>
         <Text style={styles.carouselTitle}>{item.title}</Text>
@@ -186,7 +189,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           <Text style={styles.distanceText}>{item.distance}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   // Render destination item

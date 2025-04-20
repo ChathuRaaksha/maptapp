@@ -18,5 +18,10 @@ export type RootStackParamList = {
     Onboarding2: undefined;
     Onboarding3: undefined;
     Map:undefined;
+    ARCamera:undefined;
+    Contributions:undefined;
+    RestaurantDetail: { itemId: string };
+    Review: { restaurantId: string };
+    ThankYou: undefined;
   };
   
