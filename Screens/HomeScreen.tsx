@@ -162,7 +162,11 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       routes: [{ name: 'Login' }], // Uncomment to navigate to Login screen
      });
   };
-
+  const handleProfile = () => {
+    
+      navigation.navigate("Profile");
+ 
+  };
   // Render carousel item using FlatList
   const renderCarouselItem = ({ item }: { item: CarouselItem }) => (
     <TouchableOpacity 
@@ -256,9 +260,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             </View>
           </View>
           
-          <TouchableOpacity style={styles.profileButton}>
+          <TouchableOpacity style={styles.profileButton} onPress={handleProfile}>
             <Image 
-              source={require('../assets/img/start1.png')} 
+              source={require('../assets/img/profile.png')} 
               style={styles.profileImage} 
             />
           </TouchableOpacity>
@@ -367,9 +371,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             <Text style={styles.navItemText}>MAP</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Account')}>
-            <Icon name="user" size={24} color="#666" />
-            <Text style={styles.navItemText}>Account</Text>
+          <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Community')}>
+            <Icon name="users" size={24} color="#666" />
+            <Text style={styles.navItemText}>Community</Text>
           </TouchableOpacity>
         </View>
       </View>

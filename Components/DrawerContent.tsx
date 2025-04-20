@@ -46,7 +46,7 @@ const DrawerContent: React.FC<DrawerContentProps> = ({ navigation, closeDrawer, 
       {/* User Profile Section */}
       <View style={styles.profileSection}>
         <Image 
-          source={require('../assets/img/start1.png')} 
+          source={require('../assets/img/profile.png')} 
           style={styles.profileImage} 
         />
         <View style={styles.profileInfo}>

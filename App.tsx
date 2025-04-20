@@ -12,17 +12,19 @@ import SignUpScreen from './Screens/SignUpScreen';
 import CreateProfileScreen from './Screens/CreateProfileScreen';
 import PersonalizeInterestsScreen from './Screens/PersonalizeInterestsScreen';
 import SettingsScreen from './Screens/SettingsScreen';
-import OnboardingScreen1 from './Screens/onboarding/OnboardingScreen1';
-import OnboardingScreen2 from './Screens/onboarding/OnboardingScreen2';
-import OnboardingScreen3 from './Screens/onboarding/OnboardingScreen3';
 import MapScreen from './Screens/MapScreen';
 import ContributeScreen from './Screens/ContributeScreen';
 import RestaurantDetailScreen from './Screens/RestaurantDetailScreen';
 import ReviewScreen from './Screens/ReviewScreen';
 import ThankYouScreen from './Screens/ThankYouScreen';
-//import ARCameraScreen from './Screens/ARCameraScreen'; RestaurantDetail
+import ProfileScreen from './Screens/ProfileScreen';
+import EditProfileScreen from './Screens/EditProfileScreen';
+import ChangePasswordScreen from './Screens/ChangePasswordScreen';
+import AdjustPreferencesScreen from './Screens/AdjustPreferencesScreen';
+import CommunityScreen from './Screens/CommunityScreen';
+//import ARCameraScreen from './Screens/ARCameraScreen';
 import { RootStackParamList } from './types/navigation'; // Import the type
-
+//import { CardStyleInterpolators } from '@react-navigation/stack';
 const Stack = createStackNavigator<RootStackParamList>(); // Define the stack type
 
 export default function App() {
@@ -35,20 +37,30 @@ export default function App() {
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="Forgot_password" component={ForgotPasswordScreen} />
         <Stack.Screen name="CreateProfile" component={CreateProfileScreen} />
+        <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+        <Stack.Screen name="AdjustPreferences" component={AdjustPreferencesScreen} />
         <Stack.Screen name="AuthCode" component={AuthCodeScreen} />
         <Stack.Screen name="CreateNewPassword" component={CreateNewPasswordScreen} />
         <Stack.Screen name="PersonalizeInterests" component={PersonalizeInterestsScreen} />
         <Stack.Screen name="Contributions" component={ContributeScreen} />
+        <Stack.Screen name="Community" component={CommunityScreen} />
         <Stack.Screen name="Map" component={MapScreen} />
         <Stack.Screen name="Review" component={ReviewScreen} />
         <Stack.Screen name="ThankYou" component={ThankYouScreen} />
         <Stack.Screen name="RestaurantDetail" component={RestaurantDetailScreen} />
-        {/* <Stack.Screen name="ARCamera" component={ARCameraScreen} /> */}
+  {/*       <Stack.Screen
+  name="ARCamera"
+  component={ARCameraScreen}
+  options={{
+    headerShown: false,
+    cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+  }}
+/> */}
         <Stack.Screen name="Settings" component={SettingsScreen} />
         <Stack.Screen name="Splash2" component={SplashScreen2}  options={{ headerShown: false }}/>
-        <Stack.Screen name="Onboarding1" component={OnboardingScreen1} />
-        <Stack.Screen name="Onboarding2" component={OnboardingScreen2} />
-        <Stack.Screen name="Onboarding3" component={OnboardingScreen3} />
+       
       </Stack.Navigator>
     </NavigationContainer>
   );

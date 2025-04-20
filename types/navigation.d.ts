@@ -14,14 +14,16 @@ export type RootStackParamList = {
     CreateNewPassword:undefined;
     Forgot_password: undefined;
     Settings: undefined;
-    Onboarding1: undefined;
-    Onboarding2: undefined;
-    Onboarding3: undefined;
     Map:undefined;
     ARCamera:undefined;
     Contributions:undefined;
     RestaurantDetail: { itemId: string };
     Review: { restaurantId: string };
     ThankYou: undefined;
+    Profile:undefined;
+    EditProfile:undefined;
+    ChangePassword:undefined;
+    AdjustPreferences:undefined;
+    Community:undefined;
   };
   

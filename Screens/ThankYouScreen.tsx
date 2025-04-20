@@ -12,12 +12,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../types/navigation";
-import styles from '../Styles/ThankYouScreenStyles';
-import { WHITE } from "../Styles/RestaurantDetailStyles";
+import styles,{ WHITE } from '../Styles/ThankYouScreenStyles';
 
 const { width, height } = Dimensions.get("window");
 const TEAL = '#00798C';
-const YELLOW = '#F4C43F';
+const YELLOW = '#FB9C00';
 
 // Define navigation type
 type NavigationProp = StackNavigationProp<RootStackParamList, 'ThankYou'>;

@@ -15,7 +15,7 @@ const SplashScreen: React.FC = () => {
       const isFirstTime = await AsyncStorage.getItem('isFirstTime');
 
       if (isFirstTime === null) {
-        navigation.navigate('Onboarding1');
+        navigation.navigate('Login');
         await AsyncStorage.setItem('isFirstTime', 'false');
       } else {
         navigation.navigate('Splash2');
