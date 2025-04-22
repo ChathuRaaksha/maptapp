@@ -20,7 +20,7 @@ const DrawerContent: React.FC<DrawerContentProps> = ({ navigation, closeDrawer, 
     { icon: 'question-circle', label: 'FAQ', screen: 'FAQ' },
     { icon: 'envelope', label: 'Contact Us', screen: 'ContactUs' },
     { icon: 'credit-card', label: 'Subscription Plans', screen: 'Subscription' },
-    { icon: 'cog', label: 'Settings', screen: 'Settings' },
+    { icon: 'cog', label: 'Settings', screen: 'Profile' },
   ];
 
   const confirmLogout = () => {

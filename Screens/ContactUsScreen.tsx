@@ -63,7 +63,7 @@ const ContactUsScreen: React.FC<ContactUsProps> = ({ navigation }) => {
     >
       <ScrollView contentContainerStyle={contactUsStyles.container} keyboardShouldPersistTaps="handled">
         <Image
-          source={require('../assets/img/login.png')}
+          source={require('../assets/img/top.png')}
           style={contactUsStyles.curvedBackground}
         />
 
@@ -74,12 +74,12 @@ const ContactUsScreen: React.FC<ContactUsProps> = ({ navigation }) => {
           <Text style={contactUsStyles.headerTitle}>Contact Us</Text>
           <View style={{ width: 24 }} />
         </View>
-
+        <View style={contactUsStyles.card}>
         <Text style={contactUsStyles.introText}>
           We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.
         </Text>
 
-        <View style={contactUsStyles.card}>
+       
           <View style={contactUsStyles.formGroup}>
             <Text style={contactUsStyles.label}>Name</Text>
             <TextInput

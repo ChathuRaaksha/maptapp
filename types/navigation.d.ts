@@ -28,5 +28,9 @@ export type RootStackParamList = {
     Saved:undefined;
     ContactUs:undefined;
     Subscription:undefined;
+    Explore:undefined;
+    Notifications:undefined;
+    FAQ:undefined;
+    Bookings:undefined;
   };
   

@@ -83,6 +83,9 @@ const ContributeScreen: React.FC<ContributeScreenProps> = ({ navigation }) => {
         return null;
     }
   };
+  const handleGoBack = () => {
+    navigation.goBack();
+  };
 
   // HomeContent component with openDrawer prop
   const HomeContent: React.FC<{ openDrawer?: () => void }> = ({ openDrawer }) => {
@@ -99,16 +102,13 @@ const ContributeScreen: React.FC<ContributeScreenProps> = ({ navigation }) => {
         {/* Header */}
         <View style={styles.header}>
           {/* Menu Button */}
-          <TouchableOpacity style={styles.menuButton} onPress={openDrawer}>
-            <Icon name="bars" size={22} color="#FFFFFF" />
+          <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
+            <Icon name="chevron-left" size={22} color="#00798C" />
           </TouchableOpacity>
           
           <View style={styles.userInfo}>
-            <Text style={styles.greeting}>Hi, Supun</Text>
-            <View style={styles.pointsContainer}>
-              <Icon name="circle" size={16} color="#FFD700" />
-              <Text style={styles.pointsText}>2,000 points</Text>
-            </View>
+            <Text style={styles.greeting}>Contributions</Text>
+           
           </View>
           
           <TouchableOpacity style={styles.profileButton}>

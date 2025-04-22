@@ -25,10 +25,15 @@ import CommunityScreen from './Screens/CommunityScreen';
 import SavedScreen from './Screens/SavedScreen';
 import ContactUsScreen from './Screens/ContactUsScreen';
 import SubscriptionScreen from './Screens/SubscriptionScreen';
+import ExploreScreen from './Screens/ExploreScreen';
+import NotificationsScreen from './Screens/NotificationsScreen';
+import FAQScreen from './Screens/FAQScreen';
+import BookingsScreen from './Screens/BookingsScreen';
 //import ARCameraScreen from './Screens/ARCameraScreen';
 import { RootStackParamList } from './types/navigation'; // Import the type
+
 //import { CardStyleInterpolators } from '@react-navigation/stack';
-const Stack = createStackNavigator<RootStackParamList>(); // Define the stack type
+const Stack = createStackNavigator<RootStackParamList>(); // Define the stack type 
 
 export default function App() {
   return (
@@ -44,6 +49,10 @@ export default function App() {
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Saved" component={SavedScreen} />
         <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+        <Stack.Screen name="Explore" component={ExploreScreen} />
+        <Stack.Screen name="Bookings" component={BookingsScreen} options={{headerShown: false}} />
+        <Stack.Screen name="FAQ" component={FAQScreen} />
+        <Stack.Screen name="Notifications" component={NotificationsScreen} />
         <Stack.Screen name="AdjustPreferences" component={AdjustPreferencesScreen} />
         <Stack.Screen name="AuthCode" component={AuthCodeScreen} />
         <Stack.Screen name="CreateNewPassword" component={CreateNewPasswordScreen} />

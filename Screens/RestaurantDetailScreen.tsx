@@ -29,15 +29,15 @@ const { width } = Dimensions.get("window");
 
 // Mock data for the image slider
 const imageSliderData: ImageSliderItem[] = [
-  { id: '1', image: require('../assets/img/start1.png') },
-  { id: '2', image: require('../assets/img/start2.png') },
-  { id: '3', image: require('../assets/img/start3.png') },
-  { id: '4', image: require('../assets/img/start4.png') },
-  { id: '5', image: require('../assets/img/start5.png') },
-  { id: '6', image: require('../assets/img/start1.png') },
-  { id: '7', image: require('../assets/img/start2.png') },
-  { id: '8', image: require('../assets/img/start3.png') },
-  { id: '9', image: require('../assets/img/start4.png') },
+  { id: '1', image: require('../assets/img/restaurants/restaurant6.png') },
+  { id: '2', image: require('../assets/img/restaurants/restaurant7.png') },
+  { id: '3', image: require('../assets/img/restaurants/restaurant8.png') },
+  { id: '4', image: require('../assets/img/restaurants/restaurant9.png') },
+  { id: '5', image: require('../assets/img/restaurants/restaurant2.png') },
+  { id: '6', image: require('../assets/img/restaurants/restaurant5.png') },
+  { id: '7', image: require('../assets/img/restaurants/restaurant4.png') },
+  { id: '8', image: require('../assets/img/restaurants/restaurant3.png') },
+  { id: '9', image: require('../assets/img/restaurants/restaurant1.png') },
 ];
 
 // Mock data for reviews
@@ -46,14 +46,14 @@ const reviewsData: ReviewItem[] = [
     id: '1',
     name: 'Nicole the Explorer',
     date: '02.11.2024',
-    text: 'Lorem ipsum dolor sit amet consectetur. Et nunc arcu laoreet commodo enim sed imperdiet interdum a.',
+    text: 'Amazing authentic Italian food in a nice ambient. Great service not too fast not too slow, very pleasant waiters. Highly recommended, one of the Italian restaurants in Stockholm.',
     avatar: require('../assets/img/start1.png'),
   },
   {
     id: '2',
     name: 'Sarah432',
     date: '07.08.2022',
-    text: 'Lorem ipsum dolor sit amet consectetur. Et nunc arcu laoreet commodo enim sed imperdiet interdum a.',
+    text: 'Cosy little restaurant with great food! The service was excellent and we had a great family dinner! We’ll be back! .',
     avatar: require('../assets/img/start2.png'),
   },
 ];
@@ -77,14 +77,14 @@ const RestaurantDetailScreen: React.FC<RestaurantDetailScreenProps> = ({ route, 
   // For demo purposes, we're using hardcoded data to match the image
   const restaurantData: RestaurantData = {
     id: route.params?.itemId || '1',
-    title: 'Lorem Ipsum Restaurant',
+    title: 'Il Forno da Pino',
     verified: true,
-    address: '18 Park Street, Stockholm',
+    address: 'Norr Mälarstrand 30, 112 20, Stockholm',
     openUntil: '20:00',
     weekdayHours: '10:00 - 20:00',
     weekendHours: '10:00 - 23:00',
     matchPercentage: 88,
-    description: 'Lorem ipsum dolor sit amet consectetur. Et nunc arcu laoreet commodo enim sed imperdiet interdum a. Suspendisse pellentesque magna leo magna nunc in. Adipiscing et ridiculus eu eget. Eget eleifend proin adipiscing cursus.',
+    description: 'Explore the culinary offerings of this restaurant and let yourself be inspired.',
     phoneNumber: '+46123456789', // Added phone number to the restaurant data
     coordinates: {
       latitude: 59.3293,

@@ -27,7 +27,7 @@ const contactUsStyles = StyleSheet.create({
     textAlign: 'center',
   },
   introText: {
-    marginTop: 130,
+    marginTop: 10,
     fontSize: 15,
     color: DARK_GRAY,
     marginBottom: 24,
@@ -43,6 +43,7 @@ const contactUsStyles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 4,
     marginBottom: 30,
+    marginTop: 90,
   },
   formGroup: {
     marginBottom: 18,

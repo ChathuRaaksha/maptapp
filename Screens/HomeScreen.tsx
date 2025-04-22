@@ -14,7 +14,7 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import DrawerNavigator from "./DrawerNavigator";
 import styles from "../Styles/HomeScreen"; // Import styles
-import CustomMap from "./MapScreen";
+import EnhancedCarousel from './EnhancedCarousel';
 // TypeScript interfaces for data types
 interface CarouselItem {
   id: string;
@@ -54,8 +54,8 @@ interface NavigationOption {
 const carouselData: CarouselItem[] = [
   {
     id: '1',
-    title: 'Lorem Ipsum Restaurant',
-    image: require('../assets/img/start1.png'),
+    title: 'Il Forno da Pino',
+    image: require('../assets/img/restaurants/restaurant6.png'),
     rating: 4.8,
     eta: '20:00',
     distance: '1.2km',
@@ -63,8 +63,8 @@ const carouselData: CarouselItem[] = [
   },
   {
     id: '2',
-    title: 'Another Restaurant',
-    image: require('../assets/img/start2.png'),
+    title: 'Byblos Stockholm',
+    image: require('../assets/img/restaurants/restaurant7.png'),
     rating: 4.5,
     eta: '25:00',
     distance: '2.1km',
@@ -72,8 +72,8 @@ const carouselData: CarouselItem[] = [
   },
   {
     id: '3',
-    title: 'Third Restaurant',
-    image: require('../assets/img/start3.png'),
+    title: 'Best of India',
+    image: require('../assets/img/restaurants/restaurant9.png'),
     rating: 4.7,
     eta: '15:00',
     distance: '0.8km',
@@ -85,8 +85,8 @@ const carouselData: CarouselItem[] = [
 const destinationsData: DestinationItem[] = [
   {
     id: '1',
-    name: 'Mount Bromo',
-    location: 'Volcano in East Java',
+    name: 'Old City',
+    location: 'Gamlastan Old City',
     image: require('../assets/img/start4.png'),
     rating: 4.9,
     price: '$ 150/pax',
@@ -94,18 +94,18 @@ const destinationsData: DestinationItem[] = [
   },
   {
     id: '2',
-    name: 'Labengki Sombori',
-    location: 'Islands in Sulawesi',
-    image: require('../assets/img/start5.png'),
+    name: 'Vasa Museum',
+    location: 'Galärvarvsvägen 14, 115 21 Stockholm',
+    image: require('../assets/img/vasa.png'),
     rating: 4.8,
     price: '$ 250/pax',
     duration: '3D2N'
   },
   {
     id: '3',
-    name: 'Sailing Komodo',
-    location: 'Labuan Bajo',
-    image: require('../assets/img/start5.png'),
+    name: 'The Royal Palace',
+    location: 'Royal Palace, 107 70 Stockholm',
+    image: require('../assets/img/royal.png'),
     rating: 4.8,
     price: '$ 200/pax',
     duration: '4D3N'
@@ -284,7 +284,11 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             <View style={styles.matchTitleContainer}>
               <Text style={styles.matchTitle}>Let's find a Match!</Text>
             </View>
-            <FlatList
+            <EnhancedCarousel 
+  data={carouselData} 
+  onSelectItem={(item) => navigation.navigate('RestaurantDetail', { itemId: item.id })}
+/>
+      {/*       <FlatList
               data={carouselData}
               renderItem={renderCarouselItem}
               keyExtractor={(item) => item.id}
@@ -301,8 +305,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
               contentContainerStyle={{ paddingHorizontal: width * 0.1 }}
               snapToInterval={width * 0.8}
               snapToAlignment="center"
-              decelerationRate="fast"
-            />
+              decelerationRate="fast" 
+            />*/}
           </View>
           
           {/* Navigation Options */}
