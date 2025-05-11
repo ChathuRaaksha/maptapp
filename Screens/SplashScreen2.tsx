@@ -15,7 +15,7 @@ const SplashScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
       <StatusBar backgroundColor="transparent" barStyle="light-content" translucent />
       <ImageBackground
-        source={require('../assets/img/start.png')} // Update with your background image path
+        source={require('../assets/img/idk7.png')} // Update with your background image path
         style={splashScreenStyles.background}
         resizeMode="cover"
       >
@@ -26,12 +26,12 @@ const SplashScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
         {/* Logo (centered) */}
         <View style={splashScreenStyles.logoContainer}>
-          <Text style={splashScreenStyles.logoText}>MAPT</Text>
+          {/* <Text style={splashScreenStyles.logoText}>MAPT</Text> */}
           <Image 
-            source={require('../assets/img/luggage.png')} 
+            source={require('../assets/img/logonew4.png')} 
             style={splashScreenStyles.luggageIcon} 
           />
-          <Text style={splashScreenStyles.logoText2}>in</Text>
+        {/*   <Text style={splashScreenStyles.logoText2}>in</Text> */}
         </View>
 
         {/* Bottom Card */}

@@ -210,21 +210,15 @@ const styles = StyleSheet.create({
     right: 20,
   },
   languageText: {
-    color: WHITE,
+   // color: WHITE,
     fontSize: 16,
   },
  
   
-  logoText: {
-    color: WHITE,
-    fontSize: 48,
-    fontWeight: 'bold',
-    marginTop:-325,
-    letterSpacing: 2,
-  },
+  
   luggageIcon: {
-    width: 50,
-    height: 70,
+    width: 200,
+    height: 80,
     marginLeft: 5,
    marginTop:-325,
     tintColor: WHITE,

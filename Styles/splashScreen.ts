@@ -12,14 +12,14 @@ export const splashScreenStyles = StyleSheet.create({
     alignItems: 'center',
   },
   logoText: {
-    color: 'white',
+  //  color: 'white',
     fontSize: 48,
     fontWeight: 'bold',
     letterSpacing: 2,
   },
   luggageIcon: {
-    width: 50,
-    height: 70,
+    width: 200,
+    height: 80,
     marginLeft: 5,
     // Remove tintColor if your PNG already has the right color
     tintColor: 'white',

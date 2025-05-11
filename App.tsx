@@ -29,6 +29,7 @@ import ExploreScreen from './Screens/ExploreScreen';
 import NotificationsScreen from './Screens/NotificationsScreen';
 import FAQScreen from './Screens/FAQScreen';
 import BookingsScreen from './Screens/BookingsScreen';
+import AddPlaceScreen from './Screens/AddPlaceScreen';
 //import ARCameraScreen from './Screens/ARCameraScreen';
 import { RootStackParamList } from './types/navigation'; // Import the type
 
@@ -61,6 +62,7 @@ export default function App() {
         <Stack.Screen name="Community" component={CommunityScreen} />
         <Stack.Screen name="ContactUs" component={ContactUsScreen} />
         <Stack.Screen name="Map" component={MapScreen} />
+        <Stack.Screen name="AddPlace" component={AddPlaceScreen} />
         <Stack.Screen name="Review" component={ReviewScreen} />
         <Stack.Screen name="Subscription" component={SubscriptionScreen} />
         <Stack.Screen name="ThankYou" component={ThankYouScreen} />
@@ -71,7 +73,7 @@ export default function App() {
   options={{
     headerShown: false,
     cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-  }}
+  }} 
 /> */}
         <Stack.Screen name="Settings" component={SettingsScreen} />
         <Stack.Screen name="Splash2" component={SplashScreen2}  options={{ headerShown: false }}/>

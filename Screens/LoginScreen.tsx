@@ -56,12 +56,12 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
                 {/* Logo (centered) */}
                 <View style={styles.logoContainer}>
-                    <Text style={styles.logoText}>MAPT</Text>
+                
                     <Image
-                        source={require('../assets/img/luggage.png')}
+                        source={require('../assets/img/logonew4.png')}
                         style={styles.luggageIcon}
                     />
-                    <Text style={styles.logoText2}>in</Text>
+                  
                 </View>
 
                 {/* Bottom Card */}

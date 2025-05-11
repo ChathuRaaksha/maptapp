@@ -103,7 +103,7 @@ const dummyPosts: PostData[] = [
     liked: true,
     comments: [
       {
-        id: 'c3',
+        id: '103',
         user: {
           id: '101',
           name: 'ChathuRaaksha',
@@ -116,6 +116,64 @@ const dummyPosts: PostData[] = [
     location: 'Mount Bromo, Indonesia'
   },
   {
+    id: '3',
+    user: {
+      id: '102',
+      name: 'TravelExplorer',
+      profileImage: require('../assets/img/logo2.png'),
+    },
+    timestamp: '5 hours ago',
+    content: 'Hiking through Mount Bromo at sunrise was one of the most magical experiences ever. The view above the clouds is something you have to see in person!',
+    media: [
+      { type: 'image', uri: 'https://picsum.photos/id/325/600/400' },
+      { type: 'image', uri: 'https://picsum.photos/id/326/600/400' }
+    ],
+    likes: 56,
+    liked: true,
+    comments: [
+      {
+        id: '103',
+        user: {
+          id: '101',
+          name: 'ChathuRaaksha',
+          profileImage: require('../assets/img/profile.png'),
+        },
+        content: 'What time did you start the hike to catch the sunrise?',
+        timestamp: '4 hours ago',
+      }
+    ],
+    location: 'Mount Bromo, Indonesia'
+  },
+  {
+    id: '4',
+    user: {
+      id: '102',
+      name: 'TravelExplorer',
+      profileImage: require('../assets/img/logo2.png'),
+    },
+    timestamp: '5 hours ago',
+    content: 'Hiking through Mount Bromo at sunrise was one of the most magical experiences ever. The view above the clouds is something you have to see in person!',
+    media: [
+      { type: 'image', uri: 'https://picsum.photos/id/325/600/400' },
+      { type: 'image', uri: 'https://picsum.photos/id/326/600/400' }
+    ],
+    likes: 56,
+    liked: true,
+    comments: [
+      {
+        id: '103',
+        user: {
+          id: '101',
+          name: 'ChathuRaaksha',
+          profileImage: require('../assets/img/profile.png'),
+        },
+        content: 'What time did you start the hike to catch the sunrise?',
+        timestamp: '4 hours ago',
+      }
+    ],
+    location: 'Mount Bromo, Indonesia'
+  },
+ /*  {
     id: '3',
     user: {
       id: '103',
@@ -142,7 +200,7 @@ const dummyPosts: PostData[] = [
     liked: false,
     comments: [],
     feeling: 'helpful'
-  },
+  }, */
  /*  {
     id: '5',
     user: {

@@ -33,12 +33,12 @@ const SplashScreen: React.FC = () => {
     <View style={splashScreenStyles.container}>
       <StatusBar backgroundColor="#00798C" barStyle="light-content" />
       <View style={splashScreenStyles.logoContainer}>
-        <Text style={splashScreenStyles.logoText}>MAPT</Text>
+       {/*  <Text style={splashScreenStyles.logoText}>MAPT</Text> */}
         <Image 
-          source={require('../assets/img/luggage.png')} 
+          source={require('../assets/img/logonew.png')} 
           style={splashScreenStyles.luggageIcon} 
         />
-        <Text style={splashScreenStyles.logoText2}>in</Text>
+       {/*  <Text style={splashScreenStyles.logoText2}>in</Text> */}
       </View>
       <Text style={splashScreenStyles.tagline}>Go with Your Flow..</Text>
     </View>

@@ -84,7 +84,7 @@ const ContributeScreen: React.FC<ContributeScreenProps> = ({ navigation }) => {
     }
   };
   const handleGoBack = () => {
-    navigation.goBack();
+    navigation.navigate('Home');
   };
 
   // HomeContent component with openDrawer prop
@@ -129,7 +129,7 @@ const ContributeScreen: React.FC<ContributeScreenProps> = ({ navigation }) => {
                   <Icon name="map-marker" size={24} color="#00798C" />
                 </View>
                 <Text style={styles.cardTitle}>Did we miss something?</Text>
-                <TouchableOpacity style={styles.cardButton}>
+                <TouchableOpacity style={styles.cardButton}onPress={() => navigation.navigate('AddPlace')} >
                   <Text style={styles.cardButtonText}>Add a Place to the map</Text>
                 </TouchableOpacity>
               </View>

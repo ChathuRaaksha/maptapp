@@ -8,13 +8,14 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
+  Image,
 } from "react-native";
 import MapView, { Marker, UrlTile, Region } from "react-native-maps";
 import * as Location from "expo-location";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-
+import { Asset } from 'expo-asset'; 
 const TEAL = "#00798C";
 
 interface MarkerType {
@@ -104,7 +105,18 @@ const MapScreen: React.FC = () => {
     { label: "Dark", value: "darkmatter" },
     { label: "Topographic", value: "topo" },
   ];
+  const [logoUri, setLogoUri] = useState<string | null>(null); // State for storing the logo URI
 
+  useEffect(() => {
+    const loadImage = async () => {
+      const asset = Asset.fromModule(require('../assets/img/logonew2.png')); // Path to the image
+      await asset.downloadAsync(); // Ensure the image is cached
+      setLogoUri(asset.uri); // Set the URI after it's loaded
+      console.log('Loaded logo URI:', asset.uri); // Log the URI to check if it's correct
+    };
+  
+    loadImage();
+  }, []);
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -232,8 +244,9 @@ const MapScreen: React.FC = () => {
       {/* Back Button */}
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
         <Ionicons name="arrow-back" size={24} color="#000" />
+        <Image source={require('../assets/img/logonew2.png')} style={styles.logo} />
       </TouchableOpacity>
-
+     
       {/* Search Input */}
       <TextInput
         style={styles.searchInput}
@@ -404,6 +417,13 @@ const styles = StyleSheet.create({
   searchInput: {
     position: "absolute", top: 90, left: 10, right: 10, zIndex: 10,
     backgroundColor: "#fff", padding: 10, borderRadius: 10,
+  },
+  logo: {
+    width: 50,  // Try increasing the width
+    height:40, // Try increasing the height
+    position: "absolute",
+    top: 5,
+    right: -350,
   },
   styleSwitcher: {
     position: "absolute", top: 140, left: 10, right: 10, zIndex: 11,

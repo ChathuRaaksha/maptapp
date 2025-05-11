@@ -37,8 +37,8 @@ export const splashScreenStyles = StyleSheet.create({
     letterSpacing: 2,
   },
   luggageIcon: {
-    width: 50,
-    height: 70,
+    width: 200,
+    height: 80,
     marginLeft: 5,
    marginTop:-325,
     tintColor: WHITE,

@@ -52,7 +52,7 @@ const citiesData: City[] = [
   {
     id: '1',
     name: 'Stockholm',
-    image: require('../assets/img/start1.png'),
+    image: require('../assets/img/stockholm.jpg'),
     description: 'Sweden\'s capital city spread across 14 islands with colorful old town and museums',
     rating: 4.8,
     activities: 42
@@ -60,7 +60,7 @@ const citiesData: City[] = [
   {
     id: '2',
     name: 'Gothenburg',
-    image: require('../assets/img/start2.png'),
+    image: require('../assets/img/gootenburg.jpg'),
     description: 'Sweden\'s second-largest city known for its Dutch-style canals and leafy boulevards',
     rating: 4.6,
     activities: 35
@@ -68,7 +68,7 @@ const citiesData: City[] = [
   {
     id: '3',
     name: 'Malmö',
-    image: require('../assets/img/start3.png'),
+    image: require('../assets/img/malmo.jpg'),
     description: 'Coastal city in southern Sweden with modern architecture and multicultural vibe',
     rating: 4.5,
     activities: 28
@@ -76,7 +76,7 @@ const citiesData: City[] = [
   {
     id: '4',
     name: 'Uppsala',
-    image: require('../assets/img/start4.png'),
+    image: require('../assets/img/upssala.jpg'),
     description: 'University town with Scandinavia\'s oldest university and magnificent cathedral',
     rating: 4.4,
     activities: 20
@@ -84,7 +84,7 @@ const citiesData: City[] = [
   {
     id: '5',
     name: 'Kiruna',
-    image: require('../assets/img/start5.png'),
+    image: require('../assets/img/northern-lights.jpg'),
     description: 'Sweden\'s northernmost town famous for northern lights and ice hotel',
     rating: 4.7,
     activities: 15
@@ -100,7 +100,7 @@ const travelPlansData: TravelPlan[] = [
     title: 'Stockholm Winter Wonder',
     description: 'Experience Stockholm\'s charm in winter with this perfect 3-day itinerary',
     price: '$599',
-    image: require('../assets/img/start1.png'),
+    image: require('../assets/img/stockholm.jpg'),
     itinerary: [
       {
         day: 1,
@@ -138,7 +138,7 @@ const travelPlansData: TravelPlan[] = [
     title: 'Stockholm Ultimate Experience',
     description: 'Immerse yourself in Stockholm\'s culture, history and cuisine for 5 days',
     price: '$899',
-    image: require('../assets/img/start1.png'),
+    image: require('../assets/img/sweden-hero2.jpg'),
     itinerary: [
       {
         day: 1,
@@ -168,7 +168,7 @@ const travelPlansData: TravelPlan[] = [
     title: 'Gothenburg Getaway',
     description: 'Discover Sweden\'s coolest coastal city in this 3-day adventure',
     price: '$549',
-    image: require('../assets/img/start2.png'),
+    image: require('../assets/img/gothenburg.jpg'),
     itinerary: [
       {
         day: 1,
@@ -189,7 +189,7 @@ const travelPlansData: TravelPlan[] = [
     title: 'Arctic Adventure in Kiruna',
     description: 'Experience the magic of Swedish Lapland with northern lights and winter activities',
     price: '$1,299',
-    image: require('../assets/img/start5.png'),
+    image: require('../assets/img/kiruna.jpg'),
     itinerary: [
       {
         day: 1,

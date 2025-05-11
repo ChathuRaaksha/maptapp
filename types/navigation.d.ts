@@ -32,5 +32,6 @@ export type RootStackParamList = {
     Notifications:undefined;
     FAQ:undefined;
     Bookings:undefined;
+    AddPlace:undefined;
   };
   
